@@ -44,3 +44,52 @@ function operate(num1, operator, num2) {
 function clear() {
 
 }
+
+const display = document.createElement("div");
+
+const oneButton = document.createElement("button");
+oneButton.textContent = "1";
+const twoButton = document.createElement("button");
+twoButton.textContent = "2";
+const threeButton = document.createElement("button");
+threeButton.textContent = "3";
+const fourButton = document.createElement("button");
+fourButton.textContent = "4";
+const fiveButton = document.createElement("button");
+fiveButton.textContent = "5";
+const sixButton = document.createElement("button");
+sixButton.textContent = "6";
+const sevenButton = document.createElement("button");
+sevenButton.textContent = "7";
+const eightButton = document.createElement("button");
+eightButton.textContent = "8";
+const nineButton = document.createElement("button");
+nineButton.textContent = "9";
+
+const addButton = document.createElement("button");
+addButton.textContent = "+";
+const subtractButton = document.createElement("button");
+subtractButton.textContent = "-";
+const multiplyButton = document.createElement("button");
+multiplyButton.textContent = "*";
+const divideButton = document.createElement("button");
+divideButton.textContent = "/";
+
+const equalsButton = document.createElement("button");
+equalsButton.textContent = "=";
+const backspaceButton = document.createElement("button");
+backspaceButton.textContent = "BACKSPACE";
+const clearButton = document.createElement("button");
+clearButton.textContent = "CLEAR";
+
+const calculatorContainer = document.createElement("div");
+const numbersContainer = document.createElement("div");
+const operatorContainer = document.createElement("div");
+const resultContainer = document.createElement("div");
+
+numbersContainer.append(oneButton, twoButton, threeButton, fourButton, fiveButton, sixButton, sevenButton, eightButton, nineButton);
+operatorContainer.append(addButton, subtractButton, multiplyButton, divideButton);
+resultContainer.append(equalsButton, backspaceButton, clearButton);
+
+calculatorContainer.append(display, numbersContainer, operatorContainer, resultContainer);
+document.body.appendChild(calculatorContainer);
