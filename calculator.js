@@ -1,51 +1,5 @@
-function add(num1, num2) {
-  return num1 + num2;
-}
-
-function subtract(num1, num2) {
-  return num1 - num2;
-}
-
-function multiply(num1, num2) {
-  return num1 * num2;
-}
-
-function divide(num1, num2) {
-  return num1 / num2;
-}
-
-function matchOperation(num1, operator, num2) {
-  switch (operator) {
-    case "+":
-      add(num1, num2);
-      break;
-    case "-":
-      subtract(num1, num2);
-      break;
-    case "*":
-      multiply(num1, num2);
-      break;
-    case "/":
-      divide(num1, num2);
-      break;
-    default:
-      return "ERROR";
-  };
-}
-
-function operate(num1, operator, num2) {
-  if (!Number.isFinite(num1) || !Number.isFinite(num2)) {
-    return "ERROR";
-  }
-
-  return matchOperation(num1, operator, num2);
-}
-
-function clear() {
-
-}
-
 const display = document.createElement("div");
+display.classList.add("display");
 
 const oneButton = document.createElement("button");
 oneButton.textContent = "1";
@@ -83,13 +37,84 @@ const clearButton = document.createElement("button");
 clearButton.textContent = "CLEAR";
 
 const calculatorContainer = document.createElement("div");
+calculatorContainer.classList.add("calculator");
 const numbersContainer = document.createElement("div");
+numbersContainer.classList.add("numbers");
 const operatorContainer = document.createElement("div");
+operatorContainer.classList.add("operators");
 const resultContainer = document.createElement("div");
+resultContainer.classList.add("results");
 
-numbersContainer.append(oneButton, twoButton, threeButton, fourButton, fiveButton, sixButton, sevenButton, eightButton, nineButton);
+numbersContainer.append(
+  oneButton,
+  twoButton,
+  threeButton,
+  fourButton,
+  fiveButton,
+  sixButton,
+  sevenButton,
+  eightButton,
+  nineButton,
+);
+
 operatorContainer.append(addButton, subtractButton, multiplyButton, divideButton);
 resultContainer.append(equalsButton, backspaceButton, clearButton);
 
+Array.from(numbersContainer.children).forEach((element) => {
+  element.classList.add("numberButton");
+});
+Array.from(operatorContainer.children).forEach((element) => {
+  element.classList.add("operatorButton");
+});
+Array.from(resultContainer.children).forEach((element) => {
+  element.classList.add("resultButton");
+});
+
 calculatorContainer.append(display, numbersContainer, operatorContainer, resultContainer);
+
+function add(num1, num2) {
+  return num1 + num2;
+}
+
+function subtract(num1, num2) {
+  return num1 - num2;
+}
+
+function multiply(num1, num2) {
+  return num1 * num2;
+}
+
+function divide(num1, num2) {
+  return num1 / num2;
+}
+
+function matchOperation(num1, operator, num2) {
+  switch (operator) {
+    case "+":
+      add(num1, num2);
+      break;
+    case "-":
+      subtract(num1, num2);
+      break;
+    case "*":
+      multiply(num1, num2);
+      break;
+    case "/":
+      divide(num1, num2);
+      break;
+    default:
+      return "ERROR";
+  }
+}
+
+function operate(num1, operator, num2) {
+  if (!Number.isFinite(num1) || !Number.isFinite(num2)) {
+    return "ERROR";
+  }
+
+  return matchOperation(num1, operator, num2);
+}
+
+function clear() {}
+
 document.body.appendChild(calculatorContainer);

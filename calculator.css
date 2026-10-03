@@ -1,0 +1,53 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calculator {
+  height: 60vh;
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.display {
+  border: 3px solid black;
+  min-height: 30%;
+}
+
+.numbers,
+.operators,
+.results {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2px;
+}
+
+.numbers {
+  min-height: 30%;
+}
+
+.operators {
+  min-height: 15%;
+}
+
+.results {
+  min-height: 15%;
+}
+
+.numberButton,
+.resultButton {
+  flex-basis: calc((100% / 3) - 2px);
+  box-sizing: border-box;
+}
+
+.operatorButton {
+  flex-basis: calc((100% / 4) - 2px);
+  box-sizing: border-box;
+}
