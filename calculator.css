@@ -18,6 +18,8 @@ body {
 .display {
   border: 3px solid black;
   min-height: 30%;
+  text-align: right;
+  font-size: 5em;
 }
 
 .numbers,
@@ -41,13 +43,17 @@ body {
   min-height: 15%;
 }
 
-.numberButton,
-.resultButton {
+.numberButton {
   flex-basis: calc((100% / 3) - 2px);
   box-sizing: border-box;
 }
 
 .operatorButton {
   flex-basis: calc((100% / 4) - 2px);
+  box-sizing: border-box;
+}
+
+.resultButton {
+  flex-basis: calc((100% / 2) - 2px);
   box-sizing: border-box;
 }
