@@ -1,54 +1,57 @@
 // we will keep the numbers as strings, and convert when it's time to operate
-let firstNumber;
-let secondNumber;
-let giveResult = false;
+let firstNumber = "";
+let secondNumber = "";
+let resultNumber = "";
 let pressedOperator = false;
 let pressedPeriod = false;
+let giveResult = true;
+let whichOperator = {
+  add: [false, "add"],
+  subtract: [false, "subtract"],
+  multiply: [false, "multiply"],
+  divide: [false, "divide"],
+};
 
 function add(num1, num2) {
-  return num1 + num2;
+  return parseInt(num1) + parseInt(num2);
 }
 
 function subtract(num1, num2) {
-  return num1 - num2;
+  return parseInt(num1) - parseInt(num2);
 }
 
 function multiply(num1, num2) {
-  return num1 * num2;
+  return parseInt(num1) * parseInt(num2);
 }
 
 function divide(num1, num2) {
-  return num1 / num2;
+  return parseInt(num1) / parseInt(num2);
 }
 
-function matchOperation(num1, operator, num2) {
+function matchOperation(operator) {
   switch (operator) {
-    case "+":
-      add(num1, num2);
-      break;
-    case "-":
-      subtract(num1, num2);
-      break;
-    case "*":
-      multiply(num1, num2);
-      break;
-    case "/":
-      divide(num1, num2);
-      break;
+    case "add":
+      return add(firstNumber, secondNumber);
+    case "subract":
+      return subtract(firstNumber, secondNumber);
+    case "multiply":
+      return multiply(firstNumber, secondNumber);
+    case "divide":
+      return divide(firstNumber, secondNumber);
     default:
       return "ERROR";
   }
 }
 
-function operate(num1, operator, num2) {
-  if (!Number.isFinite(num1) || !Number.isFinite(num2)) {
+function operate(operator) {
+  if (!Number.isFinite(parseInt(firstNumber)) || !Number.isFinite(parseInt(secondNumber))) {
     return "ERROR";
   }
 
-  return matchOperation(num1, operator, num2);
+  return matchOperation(operator);
 }
 
-function updateDisplay(variable, operatorPressed) {
+function updateDisplay(variable) {
   // far todo: make a separate line above that shows the result, or the result + operator
   // example:
   // numpad: 183 + 1 + 2
@@ -62,7 +65,9 @@ function updateDisplay(variable, operatorPressed) {
   // numpad: 183 + 1 = + 2
   // main: 2
   // top: 184 +
-  if (operatorPressed) {
+  if (giveResult) {
+    display.textContent = variable;
+  } else if (pressedOperator) {
     display.textContent += variable;
   } else {
     display.textContent += ` ${variable} `;
@@ -199,32 +204,129 @@ const periodButton = document.createElement("button");
 periodButton.textContent = ".";
 periodButton.addEventListener("click", () => {
   // disable after one period is already done, and reactivate once an operator/result is clicked
+  if (!pressedOperator) {
+    firstNumber += ".";
+  } else {
+    secondNumber += ".";
+  }
+
+  updateDisplay(".");
 });
 
 const addButton = document.createElement("button");
 addButton.textContent = "+";
 addButton.addEventListener("click", () => {
-  if (!giveResult) {
-    // operate, maybe an operate() function or the actual separate functions
-    // perpahs the operation definition can be done here
-    //
-    // operate if secondNumber != null/empty. otherwise, update display
+  if (!pressedOperator) {
+    // update display
+    pressedOperator = true;
+    updateDisplay("+ ");
+    whichOperator.add[0] = true;
   } else {
-    // update the display
+    // do operation
+    giveResult = true;
+    Object.keys(whichOperator).forEach((operator) => {
+      whichOperator[operator][0] = false;
+    });
+    let result = operate("add");
+    firstNumber = result.toString();
+    secondNumber = "";
+    result = result.toString();
+    updateDisplay(result + " + ");
+    pressedOperator = true;
+    giveResult = false;
   }
 });
 
 const subtractButton = document.createElement("button");
 subtractButton.textContent = "-";
+subtractButton.addEventListener("click", () => {
+  if (!pressedOperator) {
+    // update display
+    pressedOperator = true;
+    updateDisplay("- ");
+    whichOperator.subtract[0] = true;
+  } else {
+    // do operation
+    giveResult = true;
+    Object.keys(whichOperator).forEach((operator) => {
+      whichOperator[operator][0] = false;
+    });
+    let result = operate("subtract");
+    firstNumber = result.toString();
+    secondNumber = "";
+    result = result.toString();
+    updateDisplay(result + " - ");
+    pressedOperator = true;
+    giveResult = false;
+  }
+});
+
 const multiplyButton = document.createElement("button");
 multiplyButton.textContent = "*";
+multiplyButton.addEventListener("click", () => {
+  if (!pressedOperator) {
+    // update display
+    pressedOperator = true;
+    updateDisplay("* ");
+    whichOperator.multiply[0] = true;
+  } else {
+    // do operation
+    giveResult = true;
+    Object.keys(whichOperator).forEach((operator) => {
+      whichOperator[operator][0] = false;
+    });
+    let result = operate("multiply");
+    firstNumber = result.toString();
+    secondNumber = "";
+    result = result.toString();
+    updateDisplay(result + " * ");
+    pressedOperator = true;
+    giveResult = false;
+  }
+});
+
 const divideButton = document.createElement("button");
 divideButton.textContent = "/";
+divideButton.addEventListener("click", () => {
+  if (!pressedOperator) {
+    // update display
+    pressedOperator = true;
+    updateDisplay("/ ");
+    whichOperator.divide[0] = true;
+  } else {
+    // do operation
+    giveResult = true;
+    Object.keys(whichOperator).forEach((operator) => {
+      whichOperator[operator][0] = false;
+    });
+    let result = operate("divide");
+    firstNumber = result.toString();
+    secondNumber = "";
+    result = result.toString();
+    updateDisplay(result + " / ");
+    pressedOperator = true;
+    giveResult = false;
+  }
+});
 
 const equalsButton = document.createElement("button");
 equalsButton.textContent = "=";
 equalsButton.addEventListener("click", () => {
-  // operate
+  // check to see which operation to do, then turn every operator to false, then do operation and display
+  let operation = Object.keys(whichOperator).find((key) => {
+    whichOperator[key] === true;
+  });
+
+  giveResult = true;
+  pressedOperator = false;
+  pressedPeriod = false;
+  updateDisplay(operate(operation).toString());
+
+  Object.keys(whichOperator).forEach((operator) => {
+    whichOperator[operator] = false;
+  });
+
+  giveResult = false;
 });
 
 const backspaceButton = document.createElement("button");
@@ -238,8 +340,14 @@ clearButton.textContent = "CLEAR";
 clearButton.addEventListener("click", () => {
   // !giveResult
   display.textContent = "";
-  firstNumber = null;
-  secondNumber = null;
+  firstNumber = "";
+  secondNumber = "";
+  pressedOperator = false;
+  giveResult = false;
+  pressedPeriod = false;
+  Object.keys(whichOperator).forEach((operator) => {
+    whichOperator[operator] = false;
+  });
 });
 
 const calculatorContainer = document.createElement("div");
