@@ -472,6 +472,8 @@ periodButton.addEventListener("click", () => {
 const addButton = document.createElement("button");
 addButton.textContent = "+";
 addButton.addEventListener("click", () => {
+  resultShown = false;
+
   if (!pressedOperator) {
     // update display
     pressedOperator = true;
@@ -492,6 +494,8 @@ addButton.addEventListener("click", () => {
 const subtractButton = document.createElement("button");
 subtractButton.textContent = "-";
 subtractButton.addEventListener("click", () => {
+  resultShown = false;
+
   if (!pressedOperator) {
     // update display
     pressedOperator = true;
@@ -512,6 +516,8 @@ subtractButton.addEventListener("click", () => {
 const multiplyButton = document.createElement("button");
 multiplyButton.textContent = "*";
 multiplyButton.addEventListener("click", () => {
+  resultShown = false;
+
   if (!pressedOperator) {
     // update display
     pressedOperator = true;
@@ -532,6 +538,8 @@ multiplyButton.addEventListener("click", () => {
 const divideButton = document.createElement("button");
 divideButton.textContent = "/";
 divideButton.addEventListener("click", () => {
+  resultShown = false;
+
   if (!pressedOperator) {
     // update display
     pressedOperator = true;
