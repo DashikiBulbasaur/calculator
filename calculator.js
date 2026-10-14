@@ -460,7 +460,7 @@ periodButton.addEventListener("click", () => {
   }
 
   // disable after one period is already done, and reactivate once an operator/result is clicked
-  if (!pressedOperator) {
+  if (!pressedOperator && !giveResult) {
     firstNumber += ".";
   } else {
     secondNumber += ".";
@@ -468,6 +468,11 @@ periodButton.addEventListener("click", () => {
 
   updateDisplay(".");
 });
+
+periodButton.onclick = function () {
+  // disables on click but other functions will be able to undisable it
+  this.disabled = true;
+};
 
 const addButton = document.createElement("button");
 addButton.textContent = "+";
@@ -489,6 +494,8 @@ addButton.addEventListener("click", () => {
     giveResult = false;
     pressedAdd = true;
   }
+
+  periodButton.disabled = false;
 });
 
 const subtractButton = document.createElement("button");
@@ -511,6 +518,8 @@ subtractButton.addEventListener("click", () => {
     giveResult = false;
     pressedSubtract = true;
   }
+
+  periodButton.disabled = false;
 });
 
 const multiplyButton = document.createElement("button");
@@ -533,6 +542,8 @@ multiplyButton.addEventListener("click", () => {
     giveResult = false;
     pressedMultiply = true;
   }
+
+  periodButton.disabled = false;
 });
 
 const divideButton = document.createElement("button");
@@ -555,6 +566,8 @@ divideButton.addEventListener("click", () => {
     giveResult = false;
     pressedDivide = true;
   }
+
+  periodButton.disabled = false;
 });
 
 const equalsButton = document.createElement("button");
@@ -574,6 +587,8 @@ equalsButton.addEventListener("click", () => {
   pressedSubtract = false;
   pressedMultiply = false;
   pressedDivide = false;
+
+  periodButton.disabled = false;
 });
 
 const backspaceButton = document.createElement("button");
@@ -596,6 +611,7 @@ clearButton.addEventListener("click", () => {
   pressedSubtract = false;
   pressedMultiply = false;
   pressedDivide = false;
+  periodButton.disabled = false;
 });
 
 const calculatorContainer = document.createElement("div");
