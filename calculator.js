@@ -605,6 +605,81 @@ const backspaceButton = document.createElement("button");
 backspaceButton.textContent = "BACKSPACE";
 backspaceButton.addEventListener("click", () => {
   // starting from the second number, if not null/empty, remove the variables and change display
+
+  // check if error. erase if so
+  if (secondNumber === "ERROR") {
+    // not too sure if this is ever true
+    secondNumber = "";
+    pressedPeriod = false;
+    display.textContent = display.textContent.slice(0, -5);
+  } else if (secondNumber === "INFINITY") {
+    // not too sure if this is ever true
+    secondNumber = "";
+    pressedPeriod = false;
+    periodButton.disabled = false;
+    display.textContent = display.textContent.slice(0, -8);
+  } else if (
+    firstNumber === "ERROR" ||
+    firstNumber === "INFINITY" ||
+    display.textContent === "ERROR" ||
+    display.textContent === "INFINITY"
+  ) {
+    // re-initialize everything just in case
+    firstNumber = "";
+    secondNumber = "";
+    giveResult = false;
+    resultShown = false;
+    pressedPeriod = false;
+    pressedOperator = false;
+    pressedAdd = false;
+    pressedSubtract = false;
+    pressedMultiply = false;
+    pressedDivide = false;
+    periodButton.disabled = false;
+    display.textContent = "";
+  }
+
+  // by priority, delete
+  // for numbers, have to check if it's a period
+  if (secondNumber !== "") {
+    if (secondNumber.slice(-1) === ".") {
+      periodButton.disabled = false;
+    }
+
+    secondNumber = secondNumber.slice(0, -1);
+    display.textContent = display.textContent.slice(0, -1);
+  } else if (pressedOperator) {
+    pressedOperator = false;
+    pressedAdd = false;
+    pressedSubtract = false;
+    pressedMultiply = false;
+    pressedDivide = false;
+    periodButton.disabled = false;
+    display.textContent = display.textContent.slice(0, -3);
+  } else if (firstNumber !== "") {
+    if (firstNumber.slice(-1) === ".") {
+      periodButton.disabled = false;
+    }
+
+    firstNumber = firstNumber.slice(0, -1);
+    display.textContent = display.textContent.slice(0, -1);
+
+    if (firstNumber === "") {
+      // if it's empty, reinitialize everything just in case
+      firstNumber = "";
+      secondNumber = "";
+      giveResult = false;
+      resultShown = false;
+      pressedPeriod = false;
+      pressedOperator = false;
+      pressedAdd = false;
+      pressedSubtract = false;
+      pressedMultiply = false;
+      pressedDivide = false;
+      periodButton.disabled = false;
+      display.textContent = "";
+    }
+  }
 });
 
 const clearButton = document.createElement("button");
