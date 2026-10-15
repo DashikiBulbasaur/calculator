@@ -1,10 +1,7 @@
 // current problems:
-// 1. If the inputs are long, I don't want them to wrap and enlarge the display. I instead want them to
-//  overflow and disappear as more are added
 //
 // features to add:
-// 2. backspace
-// 3. keyboard support
+// 1. keyboard support
 
 let firstNumber = "";
 let secondNumber = "";
