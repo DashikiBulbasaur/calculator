@@ -1,4 +1,10 @@
 // current problems:
+// 1. If the inputs are long, I don't want them to wrap and enlarge the display. I instead want them to
+//  overflow and disappear as more are added
+//
+// features to add:
+// 2. backspace
+// 3. keyboard support
 
 let firstNumber = "";
 let secondNumber = "";
@@ -109,28 +115,32 @@ function operateBasedOnPreviousOp() {
 }
 
 function add(num1, num2) {
-  return parseInt(num1) + parseInt(num2);
+  return (parseFloat(num1) + parseFloat(num2)).toFixed(3);
 }
 
 function subtract(num1, num2) {
-  return parseInt(num1) - parseInt(num2);
+  return (parseFloat(num1) - parseFloat(num2)).toFixed(3);
 }
 
 function multiply(num1, num2) {
-  return parseInt(num1) * parseInt(num2);
+  return (parseFloat(num1) * parseFloat(num2)).toFixed(3);
 }
 
 function divide(num1, num2) {
-  return parseInt(num1) / parseInt(num2);
+  if (parseFloat(num2) == 0) {
+    return "INFINITY";
+  } else {
+    return (parseFloat(num1) / parseFloat(num2)).toFixed(3);
+  }
 }
 
 function matchAndOperate() {
-  if (!Number.isFinite(parseInt(firstNumber)) || !Number.isFinite(parseInt(secondNumber))) {
+  if (!Number.isFinite(parseFloat(firstNumber)) || !Number.isFinite(parseFloat(secondNumber))) {
     firstNumber = "";
     secondNumber = "";
     pressedOperator = false;
     pressedPeriod = false;
-    giveResult = false;
+    giveResult = true;
     resultShown = true;
     pressedAdd = false;
     pressedSubtract = false;
