@@ -770,6 +770,9 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
+const keyboardSupport = document.createElement("p");
+keyboardSupport.textContent = "With keyboard support!";
+
 const calculatorContainer = document.createElement("div");
 calculatorContainer.classList.add("calculator");
 const mainNumpadContainer = document.createElement("div");
@@ -809,4 +812,4 @@ Array.from(resultContainer.children).forEach((element) => {
 
 calculatorContainer.append(display, mainNumpadContainer, operatorContainer, resultContainer);
 
-document.body.appendChild(calculatorContainer);
+document.body.append(calculatorContainer, keyboardSupport);
