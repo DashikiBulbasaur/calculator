@@ -698,74 +698,92 @@ clearButton.addEventListener("click", () => {
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "1") {
+    event.preventDefault();
     oneButton.click();
   }
 
   if (event.key === "2") {
+    event.preventDefault();
     twoButton.click();
   }
 
   if (event.key === "3") {
+    event.preventDefault();
     threeButton.click();
   }
 
   if (event.key === "4") {
+    event.preventDefault();
     fourButton.click();
   }
 
   if (event.key === "5") {
+    event.preventDefault();
     fiveButton.click();
   }
 
   if (event.key === "6") {
+    event.preventDefault();
     sixButton.click();
   }
 
   if (event.key === "7") {
+    event.preventDefault();
     sevenButton.click();
   }
 
   if (event.key === "8") {
+    event.preventDefault();
     eightButton.click();
   }
 
   if (event.key === "9") {
+    event.preventDefault();
     nineButton.click();
   }
 
   if (event.key === "0") {
+    event.preventDefault();
     zeroButton.click();
   }
 
   if (event.key === ".") {
+    event.preventDefault();
     periodButton.click();
   }
 
   if (event.key === "+") {
+    event.preventDefault();
     addButton.click();
   }
 
   if (event.key === "-") {
+    event.preventDefault();
     subtractButton.click();
   }
 
   if (event.key === "*") {
+    event.preventDefault();
     multiplyButton.click();
   }
 
   if (event.key === "/") {
+    event.preventDefault();
     divideButton.click();
   }
 
   if (event.key === "=" || event.key === "Enter") {
+    event.preventDefault();
     equalsButton.click();
   }
 
   if (event.key === "Backspace") {
+    event.preventDefault();
     backspaceButton.click();
   }
 
   if (event.key === "Delete") {
+    event.preventDefault();
     clearButton.click();
   }
 });
