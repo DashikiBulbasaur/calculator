@@ -696,6 +696,80 @@ clearButton.addEventListener("click", () => {
   periodButton.disabled = false;
 });
 
+document.addEventListener("keydown", (event) => {
+  if (event.key === "1") {
+    oneButton.click();
+  }
+
+  if (event.key === "2") {
+    twoButton.click();
+  }
+
+  if (event.key === "3") {
+    threeButton.click();
+  }
+
+  if (event.key === "4") {
+    fourButton.click();
+  }
+
+  if (event.key === "5") {
+    fiveButton.click();
+  }
+
+  if (event.key === "6") {
+    sixButton.click();
+  }
+
+  if (event.key === "7") {
+    sevenButton.click();
+  }
+
+  if (event.key === "8") {
+    eightButton.click();
+  }
+
+  if (event.key === "9") {
+    nineButton.click();
+  }
+
+  if (event.key === "0") {
+    zeroButton.click();
+  }
+
+  if (event.key === ".") {
+    periodButton.click();
+  }
+
+  if (event.key === "+") {
+    addButton.click();
+  }
+
+  if (event.key === "-") {
+    subtractButton.click();
+  }
+
+  if (event.key === "*") {
+    multiplyButton.click();
+  }
+
+  if (event.key === "/") {
+    divideButton.click();
+  }
+
+  if (event.key === "=" || event.key === "Enter") {
+    equalsButton.click();
+  }
+
+  if (event.key === "Backspace") {
+    backspaceButton.click();
+  }
+
+  if (event.key === "Delete") {
+    clearButton.click();
+  }
+});
+
 const calculatorContainer = document.createElement("div");
 calculatorContainer.classList.add("calculator");
 const mainNumpadContainer = document.createElement("div");
