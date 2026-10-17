@@ -16,6 +16,16 @@ body {
   gap: 10px;
 }
 
+@media (max-width: 768px) {
+  .calculator {
+    height: 60vh;
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
 .display {
   border: 3px solid black;
   min-height: 30%;
