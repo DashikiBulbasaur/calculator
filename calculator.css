@@ -9,8 +9,8 @@ body {
 }
 
 .calculator {
-  height: 60vh;
-  width: 30vw;
+  height: 80vh;
+  width: 40vw;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -24,13 +24,23 @@ body {
     flex-direction: column;
     gap: 10px;
   }
+
+  .display {
+    border: 3px solid black;
+    min-height: 30%;
+    text-align: right;
+    font-size: 2em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 .display {
   border: 3px solid black;
   min-height: 30%;
   text-align: right;
-  font-size: 5em;
+  font-size: 4em;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
