@@ -73,7 +73,7 @@ body {
 }
 
 .operatorButton {
-  flex-basis: calc((100% / 4) - 2px);
+  flex-basis: calc((100% / 5) - 2px);
   box-sizing: border-box;
 }
 

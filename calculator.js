@@ -6,7 +6,6 @@
 let firstNumber = "";
 let secondNumber = "";
 let pressedOperator = false;
-let pressedPeriod = false;
 let giveResult = false;
 let resultShown = false;
 let pressedAdd = false;
@@ -136,7 +135,6 @@ function matchAndOperate() {
     firstNumber = "";
     secondNumber = "";
     pressedOperator = false;
-    pressedPeriod = false;
     giveResult = true;
     resultShown = true;
     pressedAdd = false;
@@ -189,7 +187,6 @@ oneButton.addEventListener("click", () => {
     giveResult = false;
     firstNumber = "";
     secondNumber = "";
-    pressedPeriod = false;
     pressedAdd = false;
     pressedSubtract = false;
     pressedMultiply = false;
@@ -198,8 +195,10 @@ oneButton.addEventListener("click", () => {
 
   if (!pressedOperator && !giveResult) {
     firstNumber += "1";
+    negativeButton.disabled = true;
   } else {
     secondNumber += "1";
+    negativeButton.disabled = true;
   }
 
   updateDisplay("1");
@@ -216,7 +215,6 @@ twoButton.addEventListener("click", () => {
     giveResult = false;
     firstNumber = "";
     secondNumber = "";
-    pressedPeriod = false;
     pressedAdd = false;
     pressedSubtract = false;
     pressedMultiply = false;
@@ -225,8 +223,10 @@ twoButton.addEventListener("click", () => {
 
   if (!pressedOperator && !giveResult) {
     firstNumber += "2";
+    negativeButton.disabled = true;
   } else {
     secondNumber += "2";
+    negativeButton.disabled = true;
   }
 
   updateDisplay("2");
@@ -243,7 +243,6 @@ threeButton.addEventListener("click", () => {
     giveResult = false;
     firstNumber = "";
     secondNumber = "";
-    pressedPeriod = false;
     pressedAdd = false;
     pressedSubtract = false;
     pressedMultiply = false;
@@ -252,8 +251,10 @@ threeButton.addEventListener("click", () => {
 
   if (!pressedOperator && !giveResult) {
     firstNumber += "3";
+    negativeButton.disabled = true;
   } else {
     secondNumber += "3";
+    negativeButton.disabled = true;
   }
 
   updateDisplay("3");
@@ -270,7 +271,6 @@ fourButton.addEventListener("click", () => {
     giveResult = false;
     firstNumber = "";
     secondNumber = "";
-    pressedPeriod = false;
     pressedAdd = false;
     pressedSubtract = false;
     pressedMultiply = false;
@@ -279,8 +279,10 @@ fourButton.addEventListener("click", () => {
 
   if (!pressedOperator && !giveResult) {
     firstNumber += "4";
+    negativeButton.disabled = true;
   } else {
     secondNumber += "4";
+    negativeButton.disabled = true;
   }
 
   updateDisplay("4");
@@ -297,7 +299,6 @@ fiveButton.addEventListener("click", () => {
     giveResult = false;
     firstNumber = "";
     secondNumber = "";
-    pressedPeriod = false;
     pressedAdd = false;
     pressedSubtract = false;
     pressedMultiply = false;
@@ -306,8 +307,10 @@ fiveButton.addEventListener("click", () => {
 
   if (!pressedOperator && !giveResult) {
     firstNumber += "5";
+    negativeButton.disabled = true;
   } else {
     secondNumber += "5";
+    negativeButton.disabled = true;
   }
 
   updateDisplay("5");
@@ -324,7 +327,6 @@ sixButton.addEventListener("click", () => {
     giveResult = false;
     firstNumber = "";
     secondNumber = "";
-    pressedPeriod = false;
     pressedAdd = false;
     pressedSubtract = false;
     pressedMultiply = false;
@@ -333,8 +335,10 @@ sixButton.addEventListener("click", () => {
 
   if (!pressedOperator && !giveResult) {
     firstNumber += "6";
+    negativeButton.disabled = true;
   } else {
     secondNumber += "6";
+    negativeButton.disabled = true;
   }
 
   updateDisplay("6");
@@ -351,7 +355,6 @@ sevenButton.addEventListener("click", () => {
     giveResult = false;
     firstNumber = "";
     secondNumber = "";
-    pressedPeriod = false;
     pressedAdd = false;
     pressedSubtract = false;
     pressedMultiply = false;
@@ -360,8 +363,10 @@ sevenButton.addEventListener("click", () => {
 
   if (!pressedOperator && !giveResult) {
     firstNumber += "7";
+    negativeButton.disabled = true;
   } else {
     secondNumber += "7";
+    negativeButton.disabled = true;
   }
 
   updateDisplay("7");
@@ -378,7 +383,6 @@ eightButton.addEventListener("click", () => {
     giveResult = false;
     firstNumber = "";
     secondNumber = "";
-    pressedPeriod = false;
     pressedAdd = false;
     pressedSubtract = false;
     pressedMultiply = false;
@@ -387,8 +391,10 @@ eightButton.addEventListener("click", () => {
 
   if (!pressedOperator && !giveResult) {
     firstNumber += "8";
+    negativeButton.disabled = true;
   } else {
     secondNumber += "8";
+    negativeButton.disabled = true;
   }
 
   updateDisplay("8");
@@ -405,7 +411,6 @@ nineButton.addEventListener("click", () => {
     giveResult = false;
     firstNumber = "";
     secondNumber = "";
-    pressedPeriod = false;
     pressedAdd = false;
     pressedSubtract = false;
     pressedMultiply = false;
@@ -414,8 +419,10 @@ nineButton.addEventListener("click", () => {
 
   if (!pressedOperator && !giveResult) {
     firstNumber += "9";
+    negativeButton.disabled = true;
   } else {
     secondNumber += "9";
+    negativeButton.disabled = true;
   }
 
   updateDisplay("9");
@@ -432,7 +439,6 @@ zeroButton.addEventListener("click", () => {
     giveResult = false;
     firstNumber = "";
     secondNumber = "";
-    pressedPeriod = false;
     pressedAdd = false;
     pressedSubtract = false;
     pressedMultiply = false;
@@ -441,8 +447,10 @@ zeroButton.addEventListener("click", () => {
 
   if (!pressedOperator && !giveResult) {
     firstNumber += "0";
+    negativeButton.disabled = true;
   } else {
     secondNumber += "0";
+    negativeButton.disabled = true;
   }
 
   updateDisplay("0");
@@ -459,7 +467,6 @@ periodButton.addEventListener("click", () => {
     giveResult = false;
     firstNumber = "";
     secondNumber = "";
-    pressedPeriod = false;
     pressedAdd = false;
     pressedSubtract = false;
     pressedMultiply = false;
@@ -469,8 +476,10 @@ periodButton.addEventListener("click", () => {
   // disable after one period is already done, and reactivate once an operator/result is clicked
   if (!pressedOperator && !giveResult) {
     firstNumber += ".";
+    negativeButton.disabled = true;
   } else {
     secondNumber += ".";
+    negativeButton.disabled = true;
   }
 
   updateDisplay(".");
@@ -478,6 +487,36 @@ periodButton.addEventListener("click", () => {
 
 periodButton.onclick = function () {
   // disables on click but other functions will be able to undisable it
+  this.disabled = true;
+};
+
+const negativeButton = document.createElement("button");
+negativeButton.textContent = "- / neg";
+negativeButton.addEventListener("click", () => {
+  if (resultShown) {
+    // basically initialize so the first number is updated
+    display.textContent = "";
+    resultShown = false;
+    pressedOperator = false;
+    giveResult = false;
+    firstNumber = "";
+    secondNumber = "";
+    pressedAdd = false;
+    pressedSubtract = false;
+    pressedMultiply = false;
+    pressedDivide = false;
+  }
+
+  if (!pressedOperator && !giveResult) {
+    firstNumber += "-";
+  } else {
+    secondNumber += "-";
+  }
+
+  updateDisplay("-");
+});
+
+negativeButton.onclick = function () {
   this.disabled = true;
 };
 
@@ -503,6 +542,7 @@ addButton.addEventListener("click", () => {
   }
 
   periodButton.disabled = false;
+  negativeButton.disabled = false;
 });
 
 const subtractButton = document.createElement("button");
@@ -527,6 +567,7 @@ subtractButton.addEventListener("click", () => {
   }
 
   periodButton.disabled = false;
+  negativeButton.disabled = false;
 });
 
 const multiplyButton = document.createElement("button");
@@ -551,6 +592,7 @@ multiplyButton.addEventListener("click", () => {
   }
 
   periodButton.disabled = false;
+  negativeButton.disabled = false;
 });
 
 const divideButton = document.createElement("button");
@@ -575,6 +617,7 @@ divideButton.addEventListener("click", () => {
   }
 
   periodButton.disabled = false;
+  negativeButton.disabled = false;
 });
 
 const equalsButton = document.createElement("button");
@@ -589,13 +632,13 @@ equalsButton.addEventListener("click", () => {
 
   giveResult = false;
   pressedOperator = false;
-  pressedPeriod = false;
   pressedAdd = false;
   pressedSubtract = false;
   pressedMultiply = false;
   pressedDivide = false;
 
   periodButton.disabled = false;
+  negativeButton.disabled = false;
 });
 
 const backspaceButton = document.createElement("button");
@@ -633,6 +676,7 @@ backspaceButton.addEventListener("click", () => {
     pressedMultiply = false;
     pressedDivide = false;
     periodButton.disabled = false;
+    negativeButton.disabled = false;
     display.textContent = "";
   }
 
@@ -641,6 +685,10 @@ backspaceButton.addEventListener("click", () => {
   if (secondNumber !== "") {
     if (secondNumber.slice(-1) === ".") {
       periodButton.disabled = false;
+    }
+
+    if (secondNumber.slice(-1) === "-") {
+      negativeButton.disabled = false;
     }
 
     secondNumber = secondNumber.slice(0, -1);
@@ -656,6 +704,10 @@ backspaceButton.addEventListener("click", () => {
   } else if (firstNumber !== "") {
     if (firstNumber.slice(-1) === ".") {
       periodButton.disabled = false;
+    }
+
+    if (firstNumber.slice(-1) === "-") {
+      negativeButton.disabled = false;
     }
 
     firstNumber = firstNumber.slice(0, -1);
@@ -674,6 +726,7 @@ backspaceButton.addEventListener("click", () => {
       pressedMultiply = false;
       pressedDivide = false;
       periodButton.disabled = false;
+      negativeButton.disabled = false;
       display.textContent = "";
     }
   }
@@ -686,7 +739,6 @@ clearButton.addEventListener("click", () => {
   firstNumber = "";
   secondNumber = "";
   pressedOperator = false;
-  pressedPeriod = false;
   giveResult = false;
   resultShown = false;
   pressedAdd = false;
@@ -694,6 +746,7 @@ clearButton.addEventListener("click", () => {
   pressedMultiply = false;
   pressedDivide = false;
   periodButton.disabled = false;
+  negativeButton.disabled = false;
 });
 
 document.addEventListener("keydown", (event) => {
@@ -786,6 +839,11 @@ document.addEventListener("keydown", (event) => {
     event.preventDefault();
     clearButton.click();
   }
+
+  if (event.key.toLowerCase() === "n") {
+    event.preventDefault();
+    negativeButton.click();
+  }
 });
 
 const keyboardSupport = document.createElement("p");
@@ -812,10 +870,10 @@ mainNumpadContainer.append(
   nineButton,
   zeroButton,
   periodButton,
-  equalsButton,
+  negativeButton,
 );
 
-operatorContainer.append(addButton, subtractButton, multiplyButton, divideButton);
+operatorContainer.append(addButton, subtractButton, multiplyButton, divideButton, equalsButton);
 resultContainer.append(backspaceButton, clearButton);
 
 Array.from(mainNumpadContainer.children).forEach((element) => {
